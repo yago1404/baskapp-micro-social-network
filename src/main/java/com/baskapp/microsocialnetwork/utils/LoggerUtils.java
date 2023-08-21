@@ -8,11 +8,8 @@ import java.util.Map;
 
 public abstract class LoggerUtils {
     public static void requestLog(Verbs verb, String route, Map<String, String> headers) {
-        System.out.println("----------- REQUEST -----------");
-        System.out.println(verb);
-        System.out.println("ROUTE =:: " + route);
+        System.out.println(verb + " ROUTE =:: " + route);
         System.out.println("HEADERS =:: " + headers);
-        System.out.println("-------------------------------");
     }
     public static void requestLog(Verbs verb, String route, Map<String, String> headers, Object body) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -22,12 +19,9 @@ public abstract class LoggerUtils {
         } catch (JsonProcessingException e) {
             requestBody = "";
         }
-        System.out.println("----------- REQUEST -----------");
-        System.out.println(verb);
-        System.out.println("ROUTE =:: " + route);
+        System.out.println(verb + " ROUTE =:: " + route);
         System.out.println("HEADERS =:: " + headers);
         System.out.println("BODY =:: " + requestBody);
-        System.out.println("-------------------------------");
     }
 
     public static void responseLog(String route, Object body) {
@@ -38,9 +32,7 @@ public abstract class LoggerUtils {
         } catch (JsonProcessingException e) {
             responseBody = "";
         }
-        System.out.println("----------- RESPONSE -----------");
         System.out.println("ROUTE =:: " + route);
         System.out.println("RESPONSE =:: " + responseBody);
-        System.out.println("--------------------------------");
     }
 }
