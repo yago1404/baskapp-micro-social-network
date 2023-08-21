@@ -26,7 +26,7 @@ public class PlayersController {
     @GetMapping("all")
     public ResponseEntity<CustomResponse> getAllPlayers(@RequestHeader Map<String, String> headers) {
         LoggerUtils.requestLog(Verbs.GET, "players/all", headers);
-        List<User> users = this.userService.getAllUsers();
+        List<User> users = this.userService.getAllPlayers();
         LoggerUtils.responseLog("players/all", users);
         CustomResponse customResponse = new CustomResponse(200, "Success", users);
         return ResponseEntity.status(HttpStatus.OK).body(customResponse);
